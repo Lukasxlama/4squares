@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap');
+
+body
+{
+    font-family: 'Truculenta', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container
+{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1,
+h2 
+{
+    color: #0056b3;
+    text-align: center;
+}
+
+h2
+{
+    margin-top: 50px;
+}
+
+ul
+{
+    line-height: 1.6;
+}
+
+.phase,
+.milestones
+{
+    background-color: #e9ecef;
+    border-left: 5px solid #007bff;
+    margin: 20px 0;
+    padding: 15px;
+}
+
+.milestones
+{
+    background-color: #d1ecf1;
+    border-left: 5px solid #17a2b8;
+}
+
+@media screen and (max-width: 600px)
+{
+    .container
+    {
+        width: 95%;
+    }
+}
+
+footer
+{
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #e9ecef;
+}
+
+.toggle
+{
+    cursor: pointer;
+    color: #007bff;
+}

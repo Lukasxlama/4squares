@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>ECER Zeitplan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="timeplan.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>ECER Zeitplan - 4squares</h1>
+        <h2>26. Januar - 8. April</h2>
+
+        <div class="milestones">
+            <h2 class="toggle" onclick="toggleContent('milestone')">Meilensteine</h2>
+            <ul id="milestone">
+                <li><s>Abschluss der Designphase.</s></li>
+                <li><s>Fertigstellung des grundlegenden Roboteraufbaus.</s></li>
+                <li><s>Fertigstellung und Abgabe des Papers.</s></li>
+                <li><s>Fertigstellung der Route beider Roboter.</s></li>
+                <li>Fertigstellung des Codes inklusive Bugfixes.</li>
+                <li>Abschluss der Feinabstimmung und der Endprüfungen.</li>
+            </ul>
+        </div>
+
+        <div class="phase">
+            <h2 class="toggle" onclick="toggleContent('phase1')">Phase 1: Design & Bau</h2>
+            <ul id="phase1">
+                <li><s>Bis Freitag, 9. Februar: Abschlussbesprechung des Designs.</s></li>
+                <li><s>Bis Freitag, 16. Februar: Beginn des Roboteraufbaus</s></li>
+                <li><s>Bis Freitag, 23. Februar: Fortsetzung des Aufbaus</s></li>
+                <li><s>Bis Freitag, 1. März: Abschluss des Roboteraufbaus.</s></li>
+            </ul>
+        </div>
+
+        <div class="phase">
+            <h2 class="toggle" onclick="toggleContent('phase2')">Phase 2: Programmierung und Tests</h2>
+            <ul id="phase2">
+                <li><s>Bis Freitag, 15. März: Fertigstellung der Route für beide Roboter.</s></li>
+                <li>Bis Freitag, 22. März: Implementierung der grundlegenden Route in C++.</li>
+                <li>Bis Freitag, 29. März: Tests & Optimierung des Codes.</li>
+            </ul>
+        </div>
+
+        <div class="phase">
+            <h2 class="toggle" onclick="toggleContent('phase3')">Phase 3: Endgültige Vorbereitungen</h2>
+            <ul id="phase3">
+                <li>Bis Freitag, 5. April: Letzte Änderungen des Codes</li>
+                <li>Bis Freitag, 8. April: Sonstige Vorbereitungen</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 4squares. Keine Rechte vorbehalten.</p>
+        <p>Kontakt: <a href="mailto:Sanz.Lukas@student.htlwrn.ac.at">Sanz.Lukas@student.htlwrn.ac.at</a></p>
+    </footer>
+
+    <script src="timeplan.js"></script>
+</body>
+</html>
