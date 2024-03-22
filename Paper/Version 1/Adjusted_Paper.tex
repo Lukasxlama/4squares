@@ -1,0 +1,175 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{eurosym}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Servo Comparison\\
+{\footnotesize \textsuperscript{*} Botball Servos VS Absima S90MH + MEX 85MG}
+}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Stefan Bleier}
+\IEEEauthorblockA{\textit{Computer Science} \\
+\textit{HTBLuVA}\\
+Wiener Neustadt, Austria \\
+bleier.stefan@student.htlwrn.ac.at}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Nico Stolz}
+\IEEEauthorblockA{\textit{Computer Science} \\
+\textit{HTBLuVA}\\
+Wiener Neustadt, Austria \\
+stolz.nico@student.htlwrn.ac.at}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Lukas Sanz}
+\IEEEauthorblockA{\textit{Computer Science} \\
+\textit{HTBLuVA}\\
+Wiener Neustadt, Austria \\
+sanz.lukas@student.htlwrn.ac.at}
+\and
+\IEEEauthorblockN{4\textsuperscript{th} Sebastian Lampl}
+\IEEEauthorblockA{\textit{Computer Science} \\
+\textit{HTBLuVA}\\
+Wiener Neustadt, Austria \\
+lampl.sebastian@student.htlwrn.ac.at}
+\and
+\IEEEauthorblockN{5\textsuperscript{th} Raphael Wiedemann}
+\IEEEauthorblockA{\textit{Computer Science} \\
+\textit{HTBLuVA}\\
+Wiener Neustadt, Austria \\
+wiedemann.raphael@student.htlwrn.ac.at}
+\and
+\IEEEauthorblockN{6\textsuperscript{th} Johannes Kosche}
+\IEEEauthorblockA{\textit{Computer Science} \\
+\textit{HTBLuVA}\\
+Wiener Neustadt, Austria \\
+kosche.johannes@student.htlwrn.ac.at}
+}
+\maketitle
+
+\begin{abstract}
+In this paper this study conducted various tests and a lot of research to find out the differences in the botball servos and others. The idea is to give participants of the OPEN-tournaments more freedom in their design and make it easier for them by giving them ideas for alternative servos to use. There haven't been many who have compared different servos like this before.
+\end{abstract}
+
+\section{Introduction}
+This document serves the purpose of comparing the servos used in a botball competition to others which are roughly in the same price-range. Knowing which ones are better proves to be a challenge as the best or not change depending on how you plan to use them. By knowing the strengths of each servo especially participants of the OPEN-tournament are ensured to have more freedom in their design as well as an easier time implementing their various ideas. The servos in question are the Absima S90MH which competes with the standard botball servo and the MEX 85MG which will be compared with the micro botball servo. They are being compared in the categories price, size, weight and speed. The data was collected by experimenting and doing checks.
+
+\section{Literature Review/Study of Literature}
+
+% TODO: Research
+
+\section{Experiments}
+\subsection{Price}
+The price of a servo probably is one of the, if not the, most important factor for many. The price also vary depending on the region where they are bought. However these should still all be in the same prize category. Here is each price listed in dollar as well as euro (as of Feb. 2024) in a descending order:
+
+% \begin{table}[htbp]
+\caption{Prices}
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Servo Model} & \textbf{Price (\euro)} & \textbf{Price (\$)} \\
+\hline
+Absima S90MH & 19.99 & 21.55 \\
+Micro Botball & 13.92 & 15.00 \\
+Standard Botball & 11.13 & 12.00 \\
+MEX 85MG & 11.99 & 12.92 \\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+% TODO: Convert this table into a graphical representation.
+
+While all of them seem relatively the same in terms of price, the Absima S90MH still seem like an overwhelming price difference if it's compared to the standard botball servo. The same, even if the difference isn't this big, can be said about the micro botball servo and the MEX 85MG. The difference isn't fatal but still there so it's best to move on and check if the price is worth it.
+
+\subsection{Size}
+The size of a servo can impact a bot a lot, especially if it's designed to be especially small or big. It also prove difficult to manage the space on the creation if the servos are too big. So choosing a smaller servo generally seems like the better choice for anyone who experience problems with the size of their bot. Each side was measured and is listed here in descending order:
+
+% \begin{table}[htbp]
+\caption{Size in mm (Length/Width/Height)}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Servo Model} & \textbf{\textit{Size}} \\
+\hline
+Standard Botball & 54.0/20.0/45.5 \\
+Absima S90MH & 54.0/20.0/41.0 \\
+MEX 85MG & 35.0/12.0/40.0 \\
+Micro Botball & 30.0/12.0/32.0 \\
+\hline
+\end{tabular}
+\label{tab2}
+\end{center}
+\end{table}
+% TODO: Convert this table into a graphical representation.
+
+The standard botball servo be larger than the Absima S90MH but the micro botball servo is smaller than the MEX 85MG. For an average participant of an OPEN-tournament, the micro botball servo seems to be the best choice if only their size mattered. However, for designs which are past the average and need one which takes up more space, a standard botball servo be best. The others seem like an alternative in case the standard botball servo is too big or the micro botall servo is too small for the design. However, the size and weight go hand-in-hand.
+
+\subsection{Weight}
+The weight of a servo finds importance in many designs for various bots. Depending on where it is placed, a heavier servo throw the bot off balance and make the bot unuseable. It also make the bot more stable if it's placed near the center. A lighter servo make the bot a little faster though. The weight here was measured by putting the servo and the cable on a scale. The collected data can be seen here in descending order
+
+% \begin{table}[htbp]
+\caption{Weight in gramm}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Servo Model} & \textbf{\textit{Weight}} \\
+\hline
+Standard Botball & 62g \\
+Absima S90MH & 52g \\
+MEX 85MG & 20g \\
+Micro Botball & 10g \\
+\hline
+\end{tabular}
+\label{tab3}
+\end{center}
+\end{table}
+% TODO: Convert this table into a graphical representation.
+
+The results of the comparison is not surprising when looking at the size difference. The mirco botball one is the smallest and also has the least weight. The standard botball one is the largest and is the heaviest. However, the rotating part on the micro botball servo is slightly different to the others which makes it different to work with. Generally smaller equipment be needed for it. 
+Which servo when to choose still is a question of design but it should give a good view on the better ones in general. 
+
+\subsection{Speed}
+The speed probably is, the most important thing for a servo when using it for a competition. To achieve the best outcome in a competition the servos need to move quickly and get the job done as fast as possible. It turned out to be a challenge to measure this but it was done by taking a recording of it and analyzing each frame. There could be a slight difference to the actual speed but it would be at an unnoticeable range. Here the speed is measured in seconds/60° and is listed in a descending order:
+
+% \begin{table}[htbp]
+\caption{Speed in sec/60°}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Servo Model} & \textbf{\textit{Speed}} \\
+\hline
+Absima S90MH & 0.20sec/60° \\
+Standard Botball & 0.15sec/60° \\
+MEX 85MG & 0.08sec/60° \\
+Micro Botball & 0.06sec/60° \\
+\hline
+\end{tabular}
+\label{tab4}
+\end{center}
+\end{table}
+% TODO: Convert this table into a graphical representation.
+
+It can be seen that the smaller servos are generally faster than the larger ones. This is an important rule of thumb to remember when designing a bot for the various competitions. In this case the micro botball servo is clearly the fastest, taking only 0.06 seconds to turn 60. It isn't a big difference to the MEX 85MG though but a big difference when comparing it to the larger ones, especially the Absima S90MH.
+
+\section{Results}
+
+In conclusion, which servo is the best always depends on how it is being used. The participants in a tournament or other hobby designers can use the data to see which one is the best in the situation they are currently in. Usually one go for a smaller servo for smaller tasks though and a larger one for heavy lifting and similar tasks. The botball servos are great choices for both needs, choosing either the standard botball servo or the micro botball servo. 
+
+The Absima S90MH shines the most if it's being used for heavy lifting as it can lift more than the standard botball one but is also slower. It however doesn't take up as much space and isn't as heavy as the standard botball servo. The higher price makes it a tougher decision but if money is no problem, it is recommended to use the Absima S90MH if the standard botball servo isn't enough or is too heavy or too big.
+
+On the other hand the micro batball servo is the best when it comes to speed. It also doesn't weigh as much as the MEX 85MG and it is smaller in size. The micro botball servo costs more so once again, if money is no problem, it is recommended to use the MEX 85MG if the micro botball servo isn't enough in terms of weight lifting. 
+
+\begin{thebibliography}{00}
+\bibitem{b1} Botball Store: https://botball-swag.myshopify.com/collections/motos-and-servos/products/micro-servo
+\bibitem{b2} Botball Store: https://botball-swag.myshopify.com/collections/motos-and-servos/products/standard-servo
+\end{thebibliography}
+
+\end{document}

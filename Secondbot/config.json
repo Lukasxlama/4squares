@@ -1,0 +1,78 @@
+{
+  "servo0": {
+    "port": 0,
+    "init_angle": -20,
+    "max_angle": 80,
+    "min_angle": -80
+  },
+  "servo1": {
+    "port": 1,
+    "init_angle": 10,
+    "max_angle": 80,
+    "min_angle": -80
+  },
+  "servo2": {
+    "port": 2,
+    "init_angle": 10,
+    "max_angle": 80,
+    "min_angle": -80
+  },
+  "servo3": {
+    "port": 3,
+    "init_angle": 0,
+    "max_angle": 80,
+    "min_angle": -80
+  },
+
+  "sensor0": {
+    "port": 0
+  },
+
+
+
+  "kill_button": {
+    "port": 0
+  },
+
+  "starting_sensor": {
+    "port": 5
+  },
+
+  "gyro": {
+    "axis": "z",
+    "ticks_per_degree": 100
+  },
+
+  "movement": {
+    "left_motor": {
+      "port": 1
+    },
+    "right_motor": {
+      "port": 0
+    },
+    "left_sensor": {
+      "port": 0
+    },
+    "right_sensor": {
+      "port": 1
+    },
+    "start_speed": 0.25,
+    "end_speed": 0.18,
+    "encoder_accel_cm": 3.5,
+    "encoder_decel_cm": 7.0,
+    "encoder_correction_factor": 0.002,
+    "gyro_accel_deg": 20,
+    "gyro_decel_deg": 35,
+    "gyro_correction_factor": 0.3,
+    "gyro_curve_p": 0.18,
+    "gyro_curve_i": 0.00040,
+    "gyro_curve_d": 1.0,
+    "line_follow_correction_factor": 0.0005,
+    "align_reverse_factor": -0.75,
+    "drive_overshoot_ticks": 19,
+    "turn_overshoot_degrees": -1,
+    "ticks_per_cm": 29.673590504,
+    "white_value": 1700,
+    "black_value": 3800
+  }
+}
