@@ -13,14 +13,11 @@ Hier ist eine Übersicht über die im Repository enthaltenen Dateien und Verzeic
   
 ## Kontakt
 
-| Rolle | Name | E-Mail |
+| Name | Rolle(n) | E-Mail |
 | --- | --- | --- |
-| Teamleiter | Nico Stolz | Stolz.Nico@student.htlwrn.ac.at |
-| Teamleiter Stellvertreter | Sebastian Lampl | Lampl.Sebastian@student.htlwrn.ac.at |
-| Programmierer | Lukas Sanz | Sanz.Lukas@student.htlwrn.ac.at |
-| Programmierer | Sebastian Lampl | Lampl.Sebastian@student.htlwrn.ac.at |
-| Builder | Johannes Kosche | Kosche.Johannes@student.htlwrn.ac.at |
-| Builder | Stefan Bleier | Bleier.Stefan@student.htlwrn.ac.at |
-| Support | Nico Stolz | Stolz.Nico@student.htlwrn.ac.at |
-| Support | Raphael Wiedemann | Wiedemann.Raphael@student.htlwrn.ac.at |
-| Paper Writer | Nico Stolz | Stolz.Nico@student.htlwrn.ac.at |
+| Nico Stolz | Teamleiter, Support, Paper Writer | Stolz.Nico@student.htlwrn.ac.at |
+| Sebastian Lampl | Teamleiter Stellvertreter, Programmierer | Lampl.Sebastian@student.htlwrn.ac.at |
+| Lukas Sanz | Programmierer | Sanz.Lukas@student.htlwrn.ac.at |
+| Johannes Kosche | Builder | Kosche.Johannes@student.htlwrn.ac.at |
+| Stefan Bleier | Builder | Bleier.Stefan@student.htlwrn.ac.at |
+| Raphael Wiedemann | Support | Wiedemann.Raphael@student.htlwrn.ac.at |
