@@ -1,0 +1,3 @@
+/home/pi/programs/examples/mainbot/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/pi/programs/examples/mainbot/cmake-build-debug/CMakeFiles/botball_user_program.dir
+/home/pi/programs/examples/mainbot/cmake-build-debug/CMakeFiles/edit_cache.dir

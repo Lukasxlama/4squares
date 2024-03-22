@@ -1,0 +1,63 @@
+{
+  "kill_button":
+  {
+    "port": 0
+  },
+
+  "starting_sensor":
+  {
+    "port": 0
+  },
+
+  "gyro":
+  {
+    "axis": "z",
+    "ticks_per_degree": 100
+  },
+
+  "create":
+  {
+    "start_speed": 0.15,
+    "end_speed": 0.04,
+    "encoder_accel_cm": 5,
+    "encoder_decel_cm": 15,
+    "gyro_accel_deg": 50,
+    "gyro_decel_deg": 60,
+    "gyro_correction_factor": 0.08,
+    "gyro_curve_p": 0.03,
+    "gyro_curve_i": 0.000008,
+    "gyro_curve_d": 0.4,
+    "line_follow_correction_factor": 0.0001,
+    "align_factor": 0.00004,
+    "align_reverse_factor": -0.2,
+    "drive_overshoot_ticks": 0.001450534,
+    "turn_overshoot_degrees": -1,
+    "ticks_per_cm": 0.01,
+    "cliff_white": 2700,
+    "cliff_black": 1000
+  },
+
+  "absima":
+  {
+    "port": 0,
+    "init_angle": 0.0,
+    "min_angle": -82.5,
+    "max_angle": 82.5
+  },
+
+  "botbig":
+  {
+    "port": 1,
+    "init_angle": 0.0,
+    "min_angle": -82.5,
+    "max_angle": 82.5
+  },
+
+  "botsmall":
+  {
+    "port": 2,
+    "init_angle": 0.0,
+    "min_angle": -82.5,
+    "max_angle": 82.5
+  }
+}
