@@ -11,7 +11,7 @@
 
   "gyro":
   {
-    "axis": "z",
+    "axis": "y",
     "ticks_per_degree": 100
   },
 

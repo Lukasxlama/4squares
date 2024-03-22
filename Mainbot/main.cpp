@@ -6,7 +6,8 @@
  */
 
 // --- includes --- //
-#include "main.h" // <riplib/riplib.h> from "main.hpp"
+// <riplib/riplib.h> from "main.h"
+#include "main.h"
 #include <chrono>
 
 // --- function definitions --- //
@@ -15,27 +16,25 @@ int main()
     rip::RIP::initialize("/home/pi/programs/examples/mainbot/config.json");
 
     // --- objects --- //
-    rip::LOG->info("getting create");
     rip::Create& create = rip::Create::get();
-    rip::LOG->info("got create");
-    // rip::Servo absima = rip::Servo("absima");
-    // rip::Servo botbig = rip::Servo("botbig");
-    // rip::Servo botsmall = rip::Servo("botsmall");
+    rip::Servo absima = rip::Servo("absima");
+    rip::Servo botbig = rip::Servo("botbig");
+    rip::Servo botsmall = rip::Servo("botsmall");
 
     // --- robot setup --- //
-    // rip::LOG->info("\n1\n");
-    // BotballSetup::setupPosition(create);
-    //rip::LOG->info("\n2\n");
+    rip::LOG->info("\n1\n");
+    BotballSetup::setupPosition(create);
+    // rip::LOG->info("\n2\n");
     // BotballSetup::setupServo(botsmall);
     // rip::LOG->info("\n3\n");
     // BotballSetup::setupServo(botbig);
     // rip::LOG->info("\n4\n");
     // BotballSetup::setupServo(absima);
 
-    /*
     rip::LOG->info("\n5\n");
     rip::RIP::await_game_start(true);
 
+    /*
     // --- Botball strategy --- //
     if (rip::RIP::is_running())
     {
@@ -43,6 +42,7 @@ int main()
         create.drive(100, 0, 0, 0.5, true, false);
     }
     */
+
     // --- end --- //
     rip::RIP::shutdown();
     return EXIT_SUCCESS;
@@ -51,7 +51,7 @@ int main()
 void BotballSetup::setupServo(rip::Servo& servo)
 {
     rip::LOG->info("\n\nStarting servo setup");
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = rip::util::now();
 
     constexpr double MIN_ANGLE = -82.5;
     constexpr double MAX_ANGLE = 82.5;
@@ -74,37 +74,38 @@ void BotballSetup::setupServo(rip::Servo& servo)
     servo.move_to(MIN_ANGLE, DURATION_MS);
     rip::util::sleep(SLEEP_MS);
 
-    auto end = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-    rip::LOG->info("Servo setup completed in {} milliseconds\n\n", duration.count());
+    auto end = rip::util::now();
+    int duration = rip::util::time_diff(start, end);
+    rip::LOG->info("Servo setup completed in {} milliseconds\n\n", duration);
 }
 
 void BotballSetup::setupPosition(rip::Create& create)
 {
     rip::LOG->info("\n\nStarting position setup");
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = rip::util::now();
 
     constexpr int THRESHOLD = 2600;
-    constexpr int DRIVE_CM = 4;
-    constexpr double TARGET_SPEED = 0.6;
+    constexpr int DRIVE_CM = 12;
+    constexpr double TARGET_SPEED = 0.7;
+    constexpr bool ACCELERATE = false;
+    constexpr bool DECELERATE = true;
 
     while (create.get_cliff_sensors().front_left > THRESHOLD && create.get_cliff_sensors().front_right > THRESHOLD)
     {
-        create.drive(1, 0, 0, TARGET_SPEED, true, false);
+        create.drive(3, 0, 0, TARGET_SPEED, ACCELERATE, DECELERATE);
     }
 
-    create.turn(85, TARGET_SPEED, true, false);
+    create.turn(90, TARGET_SPEED, ACCELERATE, DECELERATE);
 
     while (!(create.get_bumpers().left || create.get_bumpers().right))
     {
-        create.drive(10, 0, 0, TARGET_SPEED, true, false);
+        create.drive(5, 0, 0, TARGET_SPEED, ACCELERATE, DECELERATE);
     }
 
-    create.drive(-5, 0, 0, TARGET_SPEED, true, false);
-    create.turn(-90, TARGET_SPEED, true, false);
-    create.drive(-DRIVE_CM, 0, 0, TARGET_SPEED, true, false);
+    create.drive(-8, 0, 0, TARGET_SPEED, ACCELERATE, DECELERATE);
+    create.turn(-90, TARGET_SPEED, ACCELERATE, DECELERATE);
+    create.drive(-DRIVE_CM, 0, 0, TARGET_SPEED, ACCELERATE, DECELERATE);
 
-    auto end = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-    rip::LOG->info("Position setup completed in {} milliseconds\n\n", duration.count());
+    auto end = rip::util::now();
+    rip::LOG->info("Position setup completed in {} milliseconds\n\n", rip::util::time_diff(start, end));
 }
