@@ -1,14 +1,14 @@
 /*
- * Team name: 4squares & Blank Faced
+ * Team name: 4squares
  * Team members: Sanz Lukas, Stolz Nico, Lampl Sebastian, Wiedemann Raphael, Kosche Johannes, Bleier Stefan
  * Version: 1.0
- * Description: Version 1 of the mainbot program (cpp)
+ * Description: Version 1 of the mainbot program (.cpp)
  */
 
 // --- includes --- //
-// <riplib/riplib.h> from "main.h"
 #include "main.h"
-#include <chrono>
+#include <vector>
+// <riplib/riplib.h> from "main.h"
 
 // --- function definitions --- //
 int main()
@@ -21,91 +21,77 @@ int main()
     rip::Servo botbig = rip::Servo("botbig");
     rip::Servo botsmall = rip::Servo("botsmall");
 
+    std::vector<rip::Servo> servoVec = {absima, botbig, botsmall};
+
     // --- robot setup --- //
-    rip::LOG->info("\n1\n");
-    BotballSetup::setupPosition(create);
-    // rip::LOG->info("\n2\n");
-    // BotballSetup::setupServo(botsmall);
-    // rip::LOG->info("\n3\n");
-    // BotballSetup::setupServo(botbig);
-    // rip::LOG->info("\n4\n");
-    // BotballSetup::setupServo(absima);
+    // rip::RIP::await_game_start(true);
 
-    rip::LOG->info("\n5\n");
-    rip::RIP::await_game_start(true);
-
-    /*
     // --- Botball strategy --- //
     if (rip::RIP::is_running())
     {
-        rip::LOG->info("\n6\n");
-        create.drive(100, 0, 0, 0.5, true, false);
+        BotballGame::driveToMoonbase(create, servoVec);
+        /*
+        BotballGame::grabCube(create);
+
+        BotballGame::driveToRockheap(create);
+        BotballGame::placeCube(create);
+
+        BotballGame::driveToNoodle(create);
+        BotballGame::graboNoodle(create);
+
+        BotballGame::driveToLavaTube(create);
+        BotballGame::placeNoodle(create);
+
+        BotballGame::driveToAstronaut(create);
+        BotballGame::grabAstronaut(create);
+
+        BotballGame::driveToFlagStation(create);
+        BotballGame::placeAstronaut(create);
+
+        BotballGame::driveToFuel(create);
+        BotballGame::driveToStart(create);
+         */
     }
-    */
 
     // --- end --- //
     rip::RIP::shutdown();
     return EXIT_SUCCESS;
 }
 
-void BotballSetup::setupServo(rip::Servo& servo)
+void BotballGame::driveToMoonbase(rip::Create& create, std::vector<rip::Servo> servoVec)
 {
-    rip::LOG->info("\n\nStarting servo setup");
-    auto start = rip::util::now();
+    create.turn(40, 1, true, true);
+    create.drive(100, 0, 0, 1, true, true);
+    create.turn(-90, 1, true, true);
 
-    constexpr double MIN_ANGLE = -82.5;
-    constexpr double MAX_ANGLE = 82.5;
-    constexpr int DURATION_MS = 1000;
-    constexpr int SLEEP_MS = 3000;
+    new rip::Task([&]
+    {
+        // Values noch nicht konfiguriert!!
+        servoVec[0].move_to(0); // TODO: Value konfigurieren
+        servoVec[1].move_to(0); // TODO: Value konfigurieren
+        servoVec[2].move_to(0); // TODO: Value konfigurieren
+    });
 
-    rip::LOG->info("Move servo to minimum angle: {}°", MIN_ANGLE);
-    servo.move_to(MIN_ANGLE, DURATION_MS);
-    rip::util::sleep(SLEEP_MS);
-
-    rip::LOG->info("Move servo to maximum angle: {}°", MAX_ANGLE);
-    servo.move_to(MAX_ANGLE, DURATION_MS);
-    rip::util::sleep(SLEEP_MS);
-
-    rip::LOG->info("Move servo to centre angle: {}°", MAX_ANGLE + (MIN_ANGLE - MAX_ANGLE) / 2);
-    servo.move_to( MAX_ANGLE + (MIN_ANGLE - MAX_ANGLE) / 2, DURATION_MS);
-    rip::util::sleep(SLEEP_MS);
-
-    rip::LOG->info("Move servo to starting position: {}°\n\n", MIN_ANGLE);
-    servo.move_to(MIN_ANGLE, DURATION_MS);
-    rip::util::sleep(SLEEP_MS);
-
-    auto end = rip::util::now();
-    int duration = rip::util::time_diff(start, end);
-    rip::LOG->info("Servo setup completed in {} milliseconds\n\n", duration);
+    create.drive(20, 1, true, true);
+    // TODO: Weitere Logik einbauen; Funktion fertigschreiben
 }
 
-void BotballSetup::setupPosition(rip::Create& create)
-{
-    rip::LOG->info("\n\nStarting position setup");
-    auto start = rip::util::now();
+void BotballGame::grabCube(rip::Create& create);
 
-    constexpr int THRESHOLD = 2600;
-    constexpr int DRIVE_CM = 12;
-    constexpr double TARGET_SPEED = 0.7;
-    constexpr bool ACCELERATE = false;
-    constexpr bool DECELERATE = true;
+void BotballGame::driveToRockheap(rip::Create& create);
+void BotballGame::placeCube(rip::Create& create);
 
-    while (create.get_cliff_sensors().front_left > THRESHOLD && create.get_cliff_sensors().front_right > THRESHOLD)
-    {
-        create.drive(3, 0, 0, TARGET_SPEED, ACCELERATE, DECELERATE);
-    }
+void BotballGame::driveToNoodle(rip::Create& create);
+void BotballGame::graboNoodle(rip::Create& create);
 
-    create.turn(90, TARGET_SPEED, ACCELERATE, DECELERATE);
+void BotballGame::driveToLavaTube(rip::Create& create);
+void BotballGame::placeNoodle(rip::Create& create);
 
-    while (!(create.get_bumpers().left || create.get_bumpers().right))
-    {
-        create.drive(5, 0, 0, TARGET_SPEED, ACCELERATE, DECELERATE);
-    }
+void BotballGame::driveToAstronaut(rip::Create& create);
+void BotballGame::grabAstronaut(rip::Create& create);
 
-    create.drive(-8, 0, 0, TARGET_SPEED, ACCELERATE, DECELERATE);
-    create.turn(-90, TARGET_SPEED, ACCELERATE, DECELERATE);
-    create.drive(-DRIVE_CM, 0, 0, TARGET_SPEED, ACCELERATE, DECELERATE);
+void BotballGame::driveToFlagStation(rip::Create& create);
+void BotballGame::placeAstronaut(rip::Create& create);
 
-    auto end = rip::util::now();
-    rip::LOG->info("Position setup completed in {} milliseconds\n\n", rip::util::time_diff(start, end));
-}
+void BotballGame::driveToFuel(rip::Create& create);
+void BotballGame::driveToStart(rip::Create& create);

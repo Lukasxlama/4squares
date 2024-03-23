@@ -1,8 +1,8 @@
 /*
- * Team name: 4squares & Blank Faced
+ * Team name: 4squares
  * Team members: Sanz Lukas, Stolz Nico, Lampl Sebastian, Wiedemann Raphael, Kosche Johannes, Bleier Stefan
  * Version: 1.0
- * Description: Version 1 of the mainbot program (hpp)
+ * Description: Version 1 of the mainbot program (.h)
  */
 
 // --- include guard --- //
@@ -12,13 +12,26 @@
 #include <riplib/riplib.h>
 
 // --- namespaces & function prototypes --- //
-namespace BotballSetup
-{
-    void setupPosition(rip::Create& create);
-    void setupServo(rip::Servo& servo);
-}
-
 namespace BotballGame
 {
+    void driveToMoonbase(rip::Create& create, std::vector<rip::Servo> servoVec);
+    void grabCube(rip::Create& create);
 
+    void driveToRockheap(rip::Create& create);
+    void placeCube(rip::Create& create);
+
+    void driveToNoodle(rip::Create& create);
+    void graboNoodle(rip::Create& create);
+
+    void driveToLavaTube(rip::Create& create);
+    void placeNoodle(rip::Create& create);
+
+    void driveToAstronaut(rip::Create& create);
+    void grabAstronaut(rip::Create& create);
+
+    void driveToFlagStation(rip::Create& create);
+    void placeAstronaut(rip::Create& create);
+
+    void driveToFuel(rip::Create& create);
+    void driveToStart(rip::Create& create);
 }

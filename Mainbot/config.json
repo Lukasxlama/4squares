@@ -11,7 +11,7 @@
 
   "gyro":
   {
-    "axis": "y",
+    "axis": "-y",
     "ticks_per_degree": 100
   },
 
@@ -40,7 +40,7 @@
   "absima":
   {
     "port": 0,
-    "init_angle": 0.0,
+    "init_angle": -15,
     "min_angle": -82.5,
     "max_angle": 82.5
   },
@@ -48,7 +48,7 @@
   "botbig":
   {
     "port": 1,
-    "init_angle": 0.0,
+    "init_angle": 45,
     "min_angle": -82.5,
     "max_angle": 82.5
   },
@@ -56,7 +56,7 @@
   "botsmall":
   {
     "port": 2,
-    "init_angle": 0.0,
+    "init_angle": -82.5,
     "min_angle": -82.5,
     "max_angle": 82.5
   }
