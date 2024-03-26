@@ -30,9 +30,9 @@ int main()
     if (rip::RIP::is_running())
     {
         BotballGame::driveToMoonbase(create, servoVec);
-        /*
-        BotballGame::grabCube(create);
+        BotballGame::grabCube(create, servoVec);
 
+        /*
         BotballGame::driveToRockheap(create);
         BotballGame::placeCube(create);
 
@@ -58,25 +58,37 @@ int main()
     return EXIT_SUCCESS;
 }
 
-void BotballGame::driveToMoonbase(rip::Create& create, std::vector<rip::Servo> servoVec)
+void BotballGame::driveToMoonbase(rip::Create& create, std::vector<rip::Servo>& servoVec)
 {
     create.turn(40, 1, true, true);
-    create.drive(100, 0, 0, 1, true, true);
-    create.turn(-90, 1, true, true);
-
     new rip::Task([&]
     {
-        // Values noch nicht konfiguriert!!
-        servoVec[0].move_to(0); // TODO: Value konfigurieren
-        servoVec[1].move_to(0); // TODO: Value konfigurieren
-        servoVec[2].move_to(0); // TODO: Value konfigurieren
+        servoVec[0].move_to(82.5, 1000);
+        servoVec[1].move_to(-48, 1000);
+        servoVec[2].move_to(65, 1000);
     });
 
-    create.drive(20, 1, true, true);
-    // TODO: Weitere Logik einbauen; Funktion fertigschreiben
+   create.drive(100, 0, 0, 1, true);
+
+    create.turn(-90, 1, true, true);
+    create.drive(-20, 0.3, true, true);
+
+    rip::Task::join_all();
+    create.drive(50, 1, true, true);
+    create.turn(-15, 1, true, true);
+    create.drive(8, 0, 0, 1, true, true);
 }
 
-void BotballGame::grabCube(rip::Create& create);
+void BotballGame::grabCube(rip::Create& create, std::vector<rip::Servo>& servoVec)
+{
+    servoVec[2].move_to(-30, 500);
+    servoVec[1].move_to(-80, 500);
+
+    create.turn(90, 1, true, true);
+
+    servoVec[0].move_to(0, 500);
+    servoVec[1].move_to(-20, 500);
+}
 
 void BotballGame::driveToRockheap(rip::Create& create);
 void BotballGame::placeCube(rip::Create& create);
