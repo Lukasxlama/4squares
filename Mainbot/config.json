@@ -53,10 +53,10 @@
     "max_angle": 82.5
   },
 
-  "botsmall":
+  "botclaw":
   {
     "port": 2,
-    "init_angle": -82.5,
+    "init_angle": 82.5,
     "min_angle": -82.5,
     "max_angle": 82.5
   }

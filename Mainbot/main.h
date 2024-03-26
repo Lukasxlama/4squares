@@ -14,11 +14,9 @@
 // --- namespaces & function prototypes --- //
 namespace BotballGame
 {
+    void collectRocks(rip::Create& create, std::vector<rip::Servo> servoVec);
     void driveToMoonbase(rip::Create& create, std::vector<rip::Servo>& servoVec);
     void grabCube(rip::Create& create, std::vector<rip::Servo>& servoVec);
-
-    void driveToRockheap(rip::Create& create);
-    void placeCube(rip::Create& create);
 
     void driveToNoodle(rip::Create& create);
     void graboNoodle(rip::Create& create);

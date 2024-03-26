@@ -19,7 +19,7 @@ int main()
     rip::Create& create = rip::Create::get();
     rip::Servo absima = rip::Servo("absima");
     rip::Servo botbig = rip::Servo("botbig");
-    rip::Servo botsmall = rip::Servo("botsmall");
+    rip::Servo botsmall = rip::Servo("botclaw");
 
     std::vector<rip::Servo> servoVec = {absima, botbig, botsmall};
 
@@ -29,12 +29,12 @@ int main()
     // --- Botball strategy --- //
     if (rip::RIP::is_running())
     {
-        BotballGame::driveToMoonbase(create, servoVec);
-        BotballGame::grabCube(create, servoVec);
+        BotballGame::collectRocks(create, servoVec);
+
+        // BotballGame::driveToMoonbase(create, servoVec);
+        // BotballGame::grabCube(create, servoVec);
 
         /*
-        BotballGame::driveToRockheap(create);
-        BotballGame::placeCube(create);
 
         BotballGame::driveToNoodle(create);
         BotballGame::graboNoodle(create);
@@ -58,40 +58,57 @@ int main()
     return EXIT_SUCCESS;
 }
 
-void BotballGame::driveToMoonbase(rip::Create& create, std::vector<rip::Servo>& servoVec)
+void BotballGame::collectRocks(rip::Create& create, std::vector<rip::Servo> servoVec)
 {
-    create.turn(40, 1, true, true);
+    create.turn(50, 1, true, true);
+    create.drive(25, 0, 0, 1, true, true);
+
     new rip::Task([&]
     {
         servoVec[0].move_to(82.5, 1000);
-        servoVec[1].move_to(-48, 1000);
-        servoVec[2].move_to(65, 1000);
+        servoVec[1].move_to(-60.0, 1000);
+        servoVec[2].move_to(0.0, 1000);
     });
 
-   create.drive(100, 0, 0, 1, true);
+    create.drive_until(true, [&] {
+        return create.get_cliff_sensors().front_left < 2600 ||
+               create.get_cliff_sensors().front_right < 2600;
+    }, 1, true);
 
+    create.drive(13, 0, 0, 1, true, true);
     create.turn(-90, 1, true, true);
-    create.drive(-20, 0.3, true, true);
+    create.drive(-30, 0.3, true, true);
+    create.drive(45, 0, 0, 1, true, true);
+    create.turn(90, 1, true, true);
+    create.drive(60, 0, 0, 1, true, true);
+
+    create.turn(-60, 1, true, true);
+    create.drive(20, 0, 0, 1, true, true);
+
+    create.drive(-35, 0, 0, 1, true, true);
+    create.turn(-40, 1, true, true);
 
     rip::Task::join_all();
-    create.drive(50, 1, true, true);
-    create.turn(-15, 1, true, true);
-    create.drive(8, 0, 0, 1, true, true);
+}
+
+void BotballGame::driveToMoonbase(rip::Create& create, std::vector<rip::Servo>& servoVec)
+{
+    // Wird am 26.03.2024 implementiert !!
 }
 
 void BotballGame::grabCube(rip::Create& create, std::vector<rip::Servo>& servoVec)
 {
-    servoVec[2].move_to(-30, 500);
-    servoVec[1].move_to(-80, 500);
+    // Funktion unvollständig, wird am 26.03.2024 implementiert!!
 
-    create.turn(90, 1, true, true);
+    servoVec[1].move_to(-56, 1000);
+    servoVec[2].move_to(60, 1000);
+    servoVec[1].move_to(-80, 1000);
 
-    servoVec[0].move_to(0, 500);
-    servoVec[1].move_to(-20, 500);
+    create.turn(90, 0.5, true, true);
+
+    servoVec[0].move_to(0, 1000);
+    servoVec[1].move_to(-60, 1000);
 }
-
-void BotballGame::driveToRockheap(rip::Create& create);
-void BotballGame::placeCube(rip::Create& create);
 
 void BotballGame::driveToNoodle(rip::Create& create);
 void BotballGame::graboNoodle(rip::Create& create);
